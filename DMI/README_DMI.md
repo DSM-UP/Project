@@ -1,6 +1,6 @@
 # DDaMamIn's Project
 
-### Ddamamin Attendance Management
+### DdaMamIn
 
 Participant | Ability
 ----------------------
