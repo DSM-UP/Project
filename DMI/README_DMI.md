@@ -3,10 +3,10 @@
 ### DdaMamIn
 
 Participant | Ability
-----------------------
-°ø¿µ±æ | Front-end
-±è´ë¿õ | Back-end
-¼ÕÁ¤¿ì | Front-end, PM
-¾È¿µÁØ | Designer
-À¯½Ã¿Â | Front-end
-ÀÌÁøÇõ | Front-end
+----------|-----------
+ê³µì˜ê¸¸ | Front-end
+ê¹€ëŒ€ì›… | Back-end
+ì†ì •ìš° | Front-end, PM
+ì•ˆì˜ì¤€ | Designer
+ìœ ì‹œì˜¨ | Front-end
+ì´ì§„í˜ | Front-end
