@@ -1,3 +1,4 @@
+//make calendar data
 function Calculation(yoil) {
     switch(yoil) {
         case 0 : return "월";
@@ -70,6 +71,86 @@ var CreateAMonthlyCalendar = function(year, month) {
     return arr;
 }
 
-var calendar = CreateAMonthlyCalendar(2019,1);
 
-console.log(calendar);
+
+//draw calendar
+
+var GetTeacher = function(month, date, number) {
+    if(date == ''){
+        return '';
+    }
+    else {
+        return '손정우'
+    }
+}
+
+
+function Calendar(Element, year, month) {
+    Element.innerHTML = `
+    <link rel="stylesheet" href="calendar.css">
+    <div class='Calendar'>
+    <ul class='Week'>
+        <li class="DayOfWeek Sunday">일</li>
+        <li class="DayOfWeek Monday">월</li>
+        <li class="DayOfWeek Tuseday">화</li>
+        <li class="DayOfWeek Wednesday">수</li>
+        <li class="DayOfWeek Thursday">목</li>
+        <li class="DayOfWeek Friday">금</li>
+        <li class="DayOfWeek Saturday">토</li>
+    </ul>
+    <div class="Days">
+        <div class="Week">
+            <div class="Date">
+                <span class="DataNumber">
+                    5
+                </span>
+                <ul class="Teachers">
+                    <li class="Teacher1">손정우</li>
+                    <li class="Teacher2">유시온</li>
+                    <li class="Teacher3">이진혁</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>`;
+
+    this.calendarData = CreateAMonthlyCalendar(year, month);
+    this.calendar = Element.getElementsByClassName('Days')[0];
+    this.week = this.calendar.querySelector('.Week');
+    this.date = this.week.querySelector('.Date');
+
+    this.setTeacher = function(date, month) {
+        var teachers = date.querySelector('.Teachers').getElementsByTagName('li');
+        for(var i = 0; i < 3; i++) {
+            teachers[i].innerHTML = GetTeacher(month, date.querySelector('.DataNumber').innerHTML, i);
+        }
+    }
+
+    this.setDates  = function(week, dateDatas) {
+        var dates = week.getElementsByClassName('Date');
+        for(var i = 0; i < 7; i++){
+            dates[i].querySelector('.DataNumber').innerHTML = dateDatas[i];
+            this.setTeacher(dates[i], 1)
+        }
+    }
+
+    for(var i = 1; i < 7; i++) {
+        var newDate = this.date.cloneNode(true);
+        if(i == 6) {
+            newDate.className = 'Date weekend';
+        }
+        this.week.appendChild(newDate);
+    }
+
+    this.weeks = [this.week];
+    for(var i = 1; i < 6; i++){
+        this.weeks.push(this.week.cloneNode(true));
+        this.calendar.appendChild(this.weeks[i]);  
+    }
+
+    for(i = 0; i < 6; i++) {
+        this.setDates(this.weeks[i], this.calendarData[i]);
+    }
+
+
+}
