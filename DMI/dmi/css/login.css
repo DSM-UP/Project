@@ -6,8 +6,9 @@ header{ height: 60px; background: #00cc66; }
 
 section > * { color: #00cc66; font-size: 108px;font-weight: bold; }
 section > .titles{ padding: 60px 0 43px 60px; }
-section > .sub_titles{ font-size: 36px; padding: 0 0 500px 60px; }
+section > .sub_titles{ font-size: 36px; padding: 0 0 100px 60px; }
 section > form{ width: 100%; padding: 0 0 0 10%; }
-section > form > input.start{ height: 108px;  width: 80%; display: inline-block; border-radius: 36px; text-decoration: none; font-size: 27px; color: white; background: linear-gradient(to right, #008800, #00cc66); text-align: center; vertical-align: middle; line-height: 108px; border: none;}
+section > form > input.login{ height: 64px; width: 80%;  display: inline-block; border-radius: 36px; text-decoration: none; font-size: 27px; color: white; background:white; text-align: center; line-height: 108px; border: 1px solid #00cc66;}
+section > form > input.start{ height: 108px;  width: 80%; display: inline-block; border-radius: 36px; text-decoration: none; font-size: 36px; color: white; background: linear-gradient(to right, #008800, #00cc66); text-align: center; vertical-align: middle; line-height: 108px; border: none; margin: 200px 0 50px 0;}
      
-footer > .footer_text{ color: #00cc66; font-size: 24px; padding: 100px 0 0 233px; }
+footer > .footer_text{ color: #00cc66; font-size: 24px; padding: 0 0 0 233px; }

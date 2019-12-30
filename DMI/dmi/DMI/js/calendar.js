@@ -92,11 +92,12 @@ function Calendar(Element, year, month) {
             <li class="DayOfWeek Sunday">SUN</li>
             <li class="DayOfWeek Monday">MON</li>
             <li class="DayOfWeek Tuseday">TUE</li>
-            <li class="DayOfWeek Wednesday">WED/li>
+            <li class="DayOfWeek Wednesday">WED</li>
             <li class="DayOfWeek Thursday">THU</li>
             <li class="DayOfWeek Friday">FRI</li>
             <li class="DayOfWeek Saturday">SAT</li>
         </ul>
+        <hr/>
         <div class="Days">
             <div class="Week">
                 <div class="Date">
@@ -150,8 +151,6 @@ function Calendar(Element, year, month) {
     for(i = 0; i < 6; i++) {
         this.setDates(this.weeks[i], this.calendarData[i]);
     }
-
-    console.log(1);
 
 
 }

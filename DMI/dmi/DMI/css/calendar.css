@@ -1,6 +1,4 @@
 .Calendar {
-    width: 300px;
-    height: 300px;
     padding: 0px;
 }
 .Week {
@@ -35,3 +33,30 @@
 .Days > .Week > .weekend{
     border-right: none;
 }
+
+.DayOfWeek{
+    color: #1bddee;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 0px 0px 2px rgba(27,221,238,1);
+}
+
+hr{
+    margin: 10px 0 ;
+}
+
+.Days{
+    transform: translateX(3%);
+}
+
+.DataNumber{
+    font-weight: bold;
+}
+
+.Days > .Week > .Date:nth-child(1) > .DataNumber {
+    color: rgb(252, 57, 50);
+} 
+
+.Days > .Week > .Date:nth-child(7) > .DataNumber {
+    color: rgb(50, 80, 252);
+} 
