@@ -221,10 +221,15 @@ a {
 
 #default-menu-modal-section > ul > li:nth-child(6) {
     position: absolute;
-    top: 1400px;
+    top: 1284px;
 }
 
 #default-menu-modal-section > ul > li:nth-child(7) {
+    position: absolute;
+    top: 1400px;
+}
+
+#default-menu-modal-section > ul > li:nth-child(8) {
     position: absolute;
     top: 1516px;
 }
