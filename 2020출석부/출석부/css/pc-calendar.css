@@ -22,10 +22,69 @@ html, body{
 .Today_Text {
     font-weight: bold;
     font-size: 24px;
+    vertical-align: center;
+    text-align: center;
 }
 .Today_Text > * {
     display: inline-block;   
 }
+
+/* 상단부 달력 선택자*/
+.Calendar_Selector{
+    display: inline-block;
+    vertical-align: bottom;
+}
+.Calendar_Selector > *{
+    display: inline-block;
+    font-size: 18px;
+}
+
+.Calendar_Selector span{
+    display: inline-block;
+    vertical-align: bottom;
+    padding-bottom: 0.1em;
+}
+
+.Go_Prev_Btn,
+.Go_Prev_Btn:before,
+.Go_Prev_Btn:after,
+.Go_Next_Btn,
+.Go_Next_Btn:before,
+.Go_Next_Btn:after
+ {
+    padding: 0;
+    width: 12px;
+    height: 12px;
+    border-width: 0;
+    background-color: black;
+    border-top-right-radius: 30%;
+    outline: none;
+}
+.Go_Prev_Btn:before,
+.Go_Next_Btn:before {
+    position: absolute;
+    content: '';
+    transform: rotate(-135deg) skewX(-45deg) scale(1.414,.707) translate(50%,-50%);
+  }
+  
+.Go_Prev_Btn:after,
+.Go_Next_Btn:after {
+    position: absolute;
+    content: '';
+    transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%, 50%);
+}
+.Go_Prev_Btn{
+    margin: 1.2em;
+    margin-bottom: 10px;
+    transform: rotate(-30deg) skewX(-30deg) scale(1,.866);
+}
+.Go_Next_Btn{
+
+    margin: 1.2em;
+    margin-bottom: 10px;
+    transform: rotate(-90deg) skewX(-30deg) scale(1,.866);
+}
+
 
 /* 상단부 토글 */
 .Content_Changer{
@@ -105,6 +164,7 @@ html, body{
 
 .Day {
     flex-grow: 1;
+    flex-basis: 0;
     vertical-align: top;
     border: 1.5px solid #87CEFA;
     padding: 5px;
@@ -150,4 +210,8 @@ html, body{
 
 .Day_Number {
     font-size: 14px;
+}
+
+.Year_Changer > span, .Month_Changer > span {
+    font-weight: bold;
 }

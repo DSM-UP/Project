@@ -165,3 +165,13 @@ section#pc-main-section > div#pc-main-right-section > form#pc-main-form > input[
     margin-left: 20px;
     margin-bottom: 10px;
 }
+
+#pc-index-login-button {
+    transition: background-color, color, 0.3s
+}
+
+#pc-index-login-button:hover {
+    background: #bbe5ff !important;
+    color: #4f2fff !important;
+    transform: scale(1.1);
+}
