@@ -1,5 +1,6 @@
 const dateButtonMon = document.querySelector('#date-button-mon');
 const dateButtonTue = document.querySelector('#date-button-tue');
+const dateButtonClub = document.querySelector('#date-button-club');
 const dateButtonEtc = document.querySelector('#date-button-etc');
 
 const teacherChangeBtn = document.querySelector('#teacher-change-mode');
@@ -38,6 +39,7 @@ function sCB_Click() {
     dateButtonMon.classList.toggle('hide');
     dateButtonTue.classList.toggle('hide');
     dateButtonEtc.classList.toggle('hide');
+    dateButtonClub.classList.toggle('hide');
     scheduleModifyBtn.classList.toggle('showSecondBox');
     scheduleBox2.classList.toggle('hide');
     if(scheduleChangeBtn.classList.contains('modify-mode')) {
@@ -74,18 +76,28 @@ function dBM() {
     dateButtonMon.classList.add('select');
     dateButtonTue.classList.remove('select');
     dateButtonEtc.classList.remove('select');
+    dateButtonClub.classList.remove('select');
 }
 
 function dBT() {
     dateButtonTue.classList.add('select');
     dateButtonEtc.classList.remove('select');
     dateButtonMon.classList.remove('select');
+    dateButtonClub.classList.remove('select');
 }
 
 function dBE() {
     dateButtonEtc.classList.add('select');
     dateButtonMon.classList.remove('select');
     dateButtonTue.classList.remove('select');
+    dateButtonClub.classList.remove('select');
+}
+
+function dBC() {
+    dateButtonEtc.classList.remove('select');
+    dateButtonMon.classList.remove('select');
+    dateButtonTue.classList.remove('select');
+    dateButtonClub.classList.add('select');
 }
 
 function tS2DS() {
@@ -145,6 +157,7 @@ function tS3DF() {
 dateButtonMon.addEventListener("click", dBM);
 dateButtonTue.addEventListener("click", dBT);
 dateButtonEtc.addEventListener("click", dBE);
+dateButtonClub.addEventListener("click", dBC);
 teacherChangeBtn.addEventListener("click", tCB_Click);
 scheduleChangeBtn.addEventListener("click", sCB_Click);
 teacherSelect2DivSecondLabel.addEventListener("click", tS2DS);
