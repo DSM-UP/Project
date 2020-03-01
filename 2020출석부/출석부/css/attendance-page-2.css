@@ -85,9 +85,13 @@ section {
     color: black;
 }
 
-#club-information > li > p:nth-child(4) {
+#club-information > li > p:nth-child(4), #club-information > li > input:nth-child(4) {
     width: 300px;
     margin: none;
+}
+
+#club-information > li > input:nth-child(4) {
+    padding: 4px 0;
 }
 
 #club-information > li > p:nth-child(1)::after, #club-information > li > p:nth-child(2)::after, #club-information > li > p:nth-child(3)::after {
@@ -107,7 +111,7 @@ section {
     
 }
 
-#club-information > li > p, #club-information > li > select{
+#club-information > li > p, #club-information > li > select, #club-information > li > input{
     border: 4px solid #87cefa;
     font-size: 32px;
     display: inline-block;
