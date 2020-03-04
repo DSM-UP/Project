@@ -5,7 +5,7 @@ section {
     margin-left: 18%;
 }
 
-section > div {
+section > a > div {
     display: inline-block;
     width: 360px;
     height: 450px;
@@ -17,7 +17,7 @@ section > div {
     position: absolute;
 }
 
-section > div > p {
+section > a > div > p {
     font-size: 60px;
     font-weight: bolder;
     color: white;
@@ -25,26 +25,30 @@ section > div > p {
     margin-top: 30%;
 }
 
-section > div:nth-child(1) {
+section > a > div > p:nth-child(2) {
+    margin-top: 10%;
+}
+
+section > a:nth-child(1) > div {
     top: 500px;
     left: 200px;
 }
 
-section > div:nth-child(1) > p {
+section > a:nth-child(1) > div > p {
     margin-top: 50%;
 }
 
-section > div:nth-child(2) {
+section > a:nth-child(2) > div {
     top: 500px;
     left: 600px;
 }
 
-section > div:nth-child(3) {
+section > a:nth-child(3) > div {
     top: 1000px;
     left: 200px;
 }
 
-section > div:nth-child(4) {
+section > a:nth-child(4) > div {
     top: 1000px;
     left: 600px;
 }
