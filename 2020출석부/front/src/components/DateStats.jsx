@@ -8,7 +8,7 @@ import StatsAttendanceListDate from './StatsAttendanceListDate'
 class DateStats extends PureComponent {
   state = {
     dateValue: get(),
-    period: '1',
+    period: '7',
     page: '0',
     attendances: []
   };
@@ -136,12 +136,6 @@ class DateStats extends PureComponent {
                 <p id="start-date-text">날짜</p>
                 <input type="date" min="2020-02-02" max="2021-02-28" value={dateValue} onChange={this.onChangeDate} />
                 <select value={period} onChange={this.onChangePeriod}>
-                  <option value="1">1교시</option>
-                  <option value="2">2교시</option>
-                  <option value="3">3교시</option>
-                  <option value="4">4교시</option>
-                  <option value="5">5교시</option>
-                  <option value="6">6교시</option>
                   <option value="7">7교시</option>
                   <option value="8">8교시</option>
                   <option value="9">9교시</option>

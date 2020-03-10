@@ -20,7 +20,7 @@ class StudentStats extends PureComponent {
     const accessToken = localStorage.getItem('accessToken');
     const { classValue } = this.state;
     try {
-      const res = await Axios.get(`http://13.209.68.218/student?grade=${e.target.value}&classs=${classValue}`, { headers: { accessToken } });
+      const res = await Axios.get(`http://13.209.68.218/student?grade=${gradeValue}&classs=${classValue}`, { headers: { accessToken } });
       const { students } = res.data;
       const res2 = await Axios.get(`http://13.209.68.218/attendance/student/${students[0].id}?page=0`, { headers: { accessToken } });
       const { attendances } = res2.data;
