@@ -10,6 +10,11 @@ router.post('/:studentId', async (req, res, next) => {
       err.status = 400;
       throw err;
     }
+    if (!purpose) {
+      const err = new Error('purpose가 널이면 안됨');
+      err.status = 402;
+      throw err;
+    }
     await Absence.create({
       reason, purpose, studentId, from, to
     });
