@@ -6,6 +6,7 @@ const messageCloseBtn = document.querySelector('#message-close-button');
 const meesage_modal_overlay = document.querySelector('.default-message-modal-overlay');
 const message_modal = document.querySelector('.default-message-modal');
 const messageBtn = document.querySelector('#default-header-message-button');
+const messageModalSection = document.querySelector('#default-message-modal-section');
 
 function modalOpen() {
     modal.classList.remove('default-menu-modal-hide');
@@ -33,6 +34,7 @@ function messageOpen() {
     messageCloseBtn.classList.remove('default-message-close');
     message_modal.classList.remove('default-message-close');
     meesage_modal_overlay.classList.remove('default-message-close');
+    messageModalSection.scrollTop = messageModalSection.scrollHeight;    
 }
 
 headerBtn.addEventListener("click", modalOpen);

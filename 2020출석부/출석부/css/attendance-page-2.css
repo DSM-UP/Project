@@ -94,7 +94,8 @@ section {
     padding: 4px 0;
 }
 
-#club-information > li > p:nth-child(1)::after, #club-information > li > p:nth-child(2)::after, #club-information > li > p:nth-child(3)::after {
+
+#club-information > li > p:nth-child(1)::after, #club-information > li > p:nth-child(2)::after , #club-information > li > p:nth-child(3)::after {
     display: inline-block;
     position: absolute;
     content: '';
