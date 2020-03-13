@@ -24,7 +24,7 @@ module.exports = async (server, app) => {
         include: [{ model: Teacher, required: true }]
       });
       console.log(newChat);
-      io.emit('newChat', newChat);
+      socket.emit('newChat', newChat);
     });
   });
 }
