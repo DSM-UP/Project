@@ -33,6 +33,7 @@ app.use('/student', require('./routes/student'));
 app.use('/absence', require('./routes/absence'));
 app.use('/club', require('./routes/club'));
 app.use('/class', require('./routes/class'));
+app.use('/chat', require('./routes/chat'));
 app.use((req, res, next) => {
   const err = new Error('Not Found');
   err.status = 404;
