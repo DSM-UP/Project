@@ -2,7 +2,7 @@ const socketIO = require('socket.io');
 const { Teacher, Chat } = require('./models');
 
 module.exports = async (server, app) => {
-  const io = socketIO(server, { path: '/socket.io' });
+  const io = socketIO(server);
   app.set('io', io);
   const chat = io.of('/chat');
   chat.on('connection', (socket) => {
