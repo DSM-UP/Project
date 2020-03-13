@@ -23,8 +23,8 @@ module.exports = async (server, app) => {
         where: { id: chat.id },
         include: [{ model: Teacher, required: true }]
       });
-      console.log(newChat);
       socket.emit('newChat', newChat);
+      socket.broadcast.emit('newChat', newChat);
     });
   });
 }
