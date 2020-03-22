@@ -6,7 +6,8 @@
 body {
     background: white;
     width: 1200px;
-    height: 1920px;
+    height: 100vh;
+    overflow: hidden;
 }
 
 ul, ol, li { 
@@ -21,7 +22,8 @@ a {
 #whole-wrap {
     position: relative;
     width: 1200px;
-    height: 1920px;
+    height: 100vh;
+    overflow: hidden;
 }
 
 #default-header {
