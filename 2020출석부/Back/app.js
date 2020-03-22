@@ -6,6 +6,7 @@ const morgan = require('morgan');
 const { sequelize } = require('./models');
 const path = require('path');
 const scheduler = require('./utils/schedule');
+const socket = require('./socket');
 require('dotenv').config();
 
 const app = express();
@@ -32,6 +33,7 @@ app.use('/student', require('./routes/student'));
 app.use('/absence', require('./routes/absence'));
 app.use('/club', require('./routes/club'));
 app.use('/class', require('./routes/class'));
+app.use('/chat', require('./routes/chat'));
 app.use((req, res, next) => {
   const err = new Error('Not Found');
   err.status = 404;
@@ -43,6 +45,8 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500).json({ status: err.status, message: err.message });
 });
 
-app.listen(app.get('port'), () => console.log(`port : ${app.get('port')}`));
+const server = app.listen(app.get('port'), () => console.log(`port : ${app.get('port')}`));
+
+socket(server, app);
 
 module.exports = app;
