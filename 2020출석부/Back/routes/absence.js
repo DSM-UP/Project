@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { Class, Student, Absence } = require('../models');
+const jwtCheck = require('../middlewares/jwtCheck');
 
-router.post('/:studentId', async (req, res, next) => {
+router.post('/:studentId', jwtCheck, async (req, res, next) => {
   const { reason, purpose, from, to } = req.body;
   const { studentId } = req.params;
   try {

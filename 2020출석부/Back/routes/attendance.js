@@ -2,6 +2,7 @@ const router = require('express').Router();
 const xlsx = require('xlsx');
 const path = require('path');
 const beforeCheck = require('../middlewares/beforeCheck');
+const jwtCheck = require('../middlewares/jwtCheck');
 const { Student, Attendance, Sequelize, sequelize, Class } = require('../models');
 const { Op } = Sequelize;
 
@@ -23,7 +24,7 @@ router.get('/teachers', beforeCheck, async (req, res, next) => {
   res.status(200).json({ teachers });
 });
 
-router.get('/club/:clubId', async (req, res, next) => {
+router.get('/club/:clubId', jwtCheck, async (req, res, next) => {
   const { clubId } = req.params;
   const { period } = req.query;
   const date = new Date();

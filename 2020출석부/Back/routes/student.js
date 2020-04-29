@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const { Class, Student, Sequelize } = require('../models');
 const { Op } = Sequelize;
+const jwtCheck = require('../middlewares/jwtCheck');
 
-router.get('/', async (req, res, next) => {
+router.get('/', jwtCheck, async (req, res, next) => {
   const { grade, classs } = req.query;
   try {
     const { id } = await Class.findOne({ where: { [Op.and]: [{ grade }, { class: classs }] }});

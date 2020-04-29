@@ -3,7 +3,9 @@ const xlsx = require('xlsx');
 const path = require('path');
 const { Teacher, Class, Student, Sequelize, Club } = require('../models');
 const { Op } = Sequelize;
-router.get('/activity', async (req, res, next) => {
+const jwtCheck = require('../middlewares/jwtCheck');
+
+router.get('/activity', jwtCheck, async (req, res, next) => {
   const { year, month, day } = req.query;
   const wb = xlsx.readFile(path.join(__dirname, '../documents/afterSchoolSchedule.xlsx'), {
     cellDates: true
@@ -21,7 +23,7 @@ router.get('/activity', async (req, res, next) => {
   res.status(200).json({ activity });
 });
 
-router.patch('/activity', async (req, res, next) => {
+router.patch('/activity', jwtCheck, async (req, res, next) => {
   const { year, month, day } = req.query;
   const { activity } = req.body;
   const wb = xlsx.readFile(path.join(__dirname, '../documents/afterSchoolSchedule.xlsx'), {
@@ -44,7 +46,7 @@ router.patch('/activity', async (req, res, next) => {
   res.status(200).json({});
 });
 
-router.patch('/activity-each', async (req, res, next) => {
+router.patch('/activity-each', jwtCheck, async (req, res, next) => {
   const { date1, date2 } = req.body;
   let workIdx1 = null, workIdx2 = null;
   const wb = xlsx.readFile(path.join(__dirname, '../documents/afterSchoolSchedule.xlsx'), {
@@ -79,7 +81,7 @@ router.patch('/activity-each', async (req, res, next) => {
   res.status(200).json({});
 });
 
-router.get('/teachers', async (req, res, next) => {
+router.get('/teachers', jwtCheck, async (req, res, next) => {
   try {
     const teachers = await Teacher.findAll({});
     res.status(200).json({ teachers });
@@ -88,7 +90,7 @@ router.get('/teachers', async (req, res, next) => {
   }
 });
 
-router.get('/teachers/specific', (req, res) => {
+router.get('/teachers/specific', jwtCheck, (req, res) => {
   const { year, month, day } = req.query;
   const wb = xlsx.readFile(path.join(__dirname, '../documents/managerSchedule.xlsx'), {
     cellDates: true
@@ -107,7 +109,7 @@ router.get('/teachers/specific', (req, res) => {
   res.status(200).json({ teachers });
 });
 
-router.patch('/teachers', (req, res) => {
+router.patch('/teachers', jwtCheck, (req, res) => {
   const { year, month, day } = req.query;
   const { f2, f3, f4 } = req.body;
   const wb = xlsx.readFile(path.join(__dirname, '../documents/managerSchedule.xlsx'), {
