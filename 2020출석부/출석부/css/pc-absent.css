@@ -16,7 +16,7 @@
 
 #pc-absent-start-date-box, #pc-absent-end-date-box, #pc-absent-student-info-box {
     height: 60px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 #pc-absent-start-date-box > p, #pc-absent-end-date-box > p{
@@ -121,12 +121,26 @@
     background: #87cefa;
     color: white;
     border: none;
-    margin-top: 30px;
+    margin-top: 70px;
     transition: background-color, color, transform 0.3s;
+    border-radius: 15px;
 }
 
 #pc-absent-submit:hover {
     background: #bbe5ff;
     color: #4f2fff;
     transform: scale(1.1);
+}
+
+#pc-absent-show-list {
+    background: #87cefa;
+    width: 250px;
+    height: 50px;
+    border-radius: 10px;
+    color: white;   
+    font-size: 18px;
+    border: none;
+    right: 24%;
+    bottom: 20%;
+    position: absolute;
 }

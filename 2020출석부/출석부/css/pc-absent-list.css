@@ -1,0 +1,221 @@
+#whole-wrap {
+    min-width: 1400px;
+    min-height: 750px;
+}
+
+#pc-absent-list-section {
+    width: 100%;
+    margin-top: 10px;
+}
+
+#pc-absent-list-section > div {
+    display: inline-block;
+    position: absolute;
+}
+
+#pc-absent-list-section > div:nth-of-type(2n+1) {
+    width: 40%;
+}
+
+#pc-absent-list-student-wrapper {
+    left: 5%;
+}
+
+.pc-absent-list-header-text {
+    width: 100%;
+    font-size: 32px;
+    font-weight: bold;
+    color: #87cefa;
+    text-align: center;
+}
+
+.pc-absent-list-info-box {
+    width: 100%;
+    border: 2px solid #87cefa;
+}
+
+.pc-absent-list-info-box > p {
+    display: inline-block;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.pc-absent-list-absent-list {
+    float: right;
+    display: block;
+    margin-top: 20px;
+}
+
+.pc-absent-list-absent-list > p{
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.pc-absent-list-information-chart > li > p{
+    display: inline-block;
+}
+
+.pc-absent-list-information-chart {
+    margin-top: 44px;
+    position: relative;
+}
+
+.pc-absent-list-information-chart > li {
+    width: 100%;
+    display: inline-block;
+    font-size: 0;
+    margin-bottom: 15px;
+}
+
+.pc-absent-list-information-chart > li:nth-of-type(n + 2) {
+    margin-bottom: 5px !important;
+}
+
+.pc-absent-list-information-chart > li::after{
+    width: 90%;
+    height: 0px;
+    border: 2px solid #87cefa;
+    position: absolute;
+    z-index: -1;
+    content: ' ';
+    transform: translateX(-100%) translateY(400%);
+}
+
+.pc-absent-list-information-chart > li:nth-child(1) > p {
+    background: #87cefa;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    padding: 6px 0; 
+}
+
+.pc-absent-list-information-chart > li:nth-of-type(n + 2) > p {
+    border: 2px solid #87cefa;
+    background: white;
+    font-size: 16px;
+    text-align: center;
+    padding: 6px 0;
+    height: 39px;
+    box-sizing: border-box;
+}
+
+.pc-absent-list-information-chart > li > p:nth-child(1) {
+    width: 40%;
+    margin-right: 5%;
+}
+
+.pc-absent-list-information-chart > li > p:nth-child(2) {
+    width: 15%;
+    margin-right: 5%;
+    font-weight: bold;
+}
+
+.pc-absent-list-information-chart > li > p:nth-child(3) {
+    width: 35%;
+}
+
+#pc-absent-list-hr {
+    width: 1px;
+    height: 80%;
+    border: 0px solid #87cefa;
+    left: 50%;
+    margin-top: 30px;
+}
+
+#pc-absent-list-date-wrapper {
+    right: 5%;
+}
+
+.pc-absent-list-information-chart > li > p.pc-absent-list-awol {
+    color: #ff0000;
+}
+
+#pc-absent-list-student-wrapper > div > select {
+    display: inline-block;
+    width: 15%;
+    border: 2px solid #87cefa;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 2px;
+    margin-right: 10px;
+}
+
+#pc-absent-list-date {
+    width: 45%;
+    border: 2px solid #87cefa;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 0px 5px;
+}
+
+#pc-absent-list-date-class {
+    width: 20%;
+    border: 2px solid #87cefa;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 2px 5px;
+    margin-left: 20px;
+}
+
+#pc-absent-list-student-left {
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: none;
+    border-right: 25px solid #bfbfbf;
+    background: none;
+    position: absolute;
+    bottom: 8%;
+    left: 22%;
+}
+
+#pc-absent-list-student-right {
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: none;
+    border-left: 25px solid #bfbfbf;
+    background: none;
+    position: absolute;
+    bottom: 8%;
+    left: 27%;
+}
+
+#pc-absent-list-date-left {
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: none;
+    border-right: 25px solid #bfbfbf;
+    background: none;
+    position: absolute;
+    bottom: 8%;
+    right: 27%;
+}
+
+#pc-absent-list-date-right {
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: none;
+    border-left: 25px solid #bfbfbf;
+    background: none;
+    position: absolute;
+    bottom: 8%;
+    right: 22%;
+}
+
+.pc-absent-list-move-button {
+    transition: transform 0.3s;
+    outline: none;
+}
+
+.pc-absent-list-move-button:hover {
+    transform: scale(1.2);
+}

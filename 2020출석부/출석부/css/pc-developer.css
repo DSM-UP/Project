@@ -4,7 +4,7 @@
 }
 
 #team {
-    margin-top: 20px;
+    margin-top: 2z0px;
     width: 100%;
     height: 220px;
     background: #87cefa;
@@ -41,11 +41,33 @@
     margin: 10px 100px 0 200px;
 }
 
-#developer-wrapper {
+#pc-developer-section {
+    position: relative;
+}
+
+#pc-developer-title {
+    width: 100%;
+    color: #87cefa;
+    line-height: 100%;
+    font-size: 32px;
+    margin: 20px 60px 0 60px;
+}
+
+#pc-developer-title::before {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background: #87cefa;
+    content: "　";
+    margin: 10px 0 0 -30px;
+}
+
+#pc-developer-wrapper {
     margin-left: 2%;
     margin-top: 20px;
 }
-#developer-wrapper > .developer-div {
+#pc-developer-wrapper > .pc-developer-div {
     width: 200px;
     height: 300px;
     display: inline-block;
@@ -54,7 +76,7 @@
     margin: 20px 20px;
 }
 
-#developer-wrapper > .developer-div > .developer-image {
+#pc-developer-wrapper > .pc-developer-div > .pc-developer-image {
     width: 140px;
     height: 140px;
     margin-top: 30px;
@@ -64,7 +86,7 @@
     border-radius: 20px;
 }
 
-#developer-wrapper > .developer-div > .developer-name, #developer-wrapper > .developer-div > .developer-major  {
+#pc-developer-wrapper > .pc-developer-div > .pc-developer-name, #pc-developer-wrapper > .pc-developer-div > .pc-developer-major  {
     font-size: 24px;
     color: white;
     font-weight: bold;
@@ -73,26 +95,26 @@
     margin-top: 20px;
 }
 
-#developer-wrapper > .developer-div:nth-child(1) > .developer-image {
-    background-image: url('../image/developer/공영길.PNG');
+#pc-developer-wrapper > .pc-developer-div:nth-child(1) > .pc-developer-image {
+    background-image: url('../image/developer/공영길.jpg');
 }
 
-#developer-wrapper > .developer-div:nth-child(2) > .developer-image {
+#pc-developer-wrapper > .pc-developer-div:nth-child(2) > .pc-developer-image {
     background-image: url('../image/developer/김대웅.jpg');
 }
 
-#developer-wrapper > .developer-div:nth-child(3) > .developer-image {
+#pc-developer-wrapper > .pc-developer-div:nth-child(3) > .pc-developer-image {
     background-image: url('../image/developer/손정우.jpg');
 }
 
-#developer-wrapper > .developer-div:nth-child(4) > .developer-image {
+#pc-developer-wrapper > .pc-developer-div:nth-child(4) > .pc-developer-image {
     background-image: url('../image/developer/안영준.PNG');
 }
 
-#developer-wrapper > .developer-div:nth-child(5) > .developer-image {
+#pc-developer-wrapper > .pc-developer-div:nth-child(5) > .pc-developer-image {
     background-image: url('../image/developer/유시온.jpg');
 }
 
-#developer-wrapper > .developer-div:nth-child(6) > .developer-image {
+#pc-developer-wrapper > .pc-developer-div:nth-child(6) > .pc-developer-image {
     background-image: url('../image/developer/이진혁.jpg');
 }

@@ -6,7 +6,8 @@
 body {
     background: white;
     width: 1200px;
-    height: 100vmax;
+    max-height: 100vh;
+    height: 100vh;
     overflow: hidden;
 }
 
@@ -22,7 +23,8 @@ a {
 #whole-wrap {
     position: relative;
     width: 1200px;
-    height: 100vmax;
+    max-height: 100vh;
+    height: 100vh;
     overflow: hidden;
 }
 
