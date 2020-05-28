@@ -23,10 +23,18 @@ section > div {
     border-radius: 55px;
 }
 
+section > div > p:nth-child(1) {
+    margin-top: 30%;
+}
+
 section > div > p {
     font-size: 60px;
     font-weight: bolder;
     color: white;
     text-align: center;
-    margin-top: 30%;
+    margin-top: 10%;
+}
+
+.second, .third, .forth {
+    font-size: 48px;
 }

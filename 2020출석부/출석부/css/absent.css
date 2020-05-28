@@ -92,3 +92,15 @@ section > div > select {
 .select {
     border: 4px solid #ffd700 !important;
 }
+
+#show-absent-list {
+    width: 400px;
+    height: 80px;
+    font-size: 36px;
+    color: white;
+    background: #87cefa;
+    border-radius: 15px;
+    border: none;
+    margin-left: 58%;
+    margin-top: 20px;
+}

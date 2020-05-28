@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DMI</title>
     <link rel="stylesheet" href="../css/default.css">
-    <link rel="stylesheet" href="../css/stats.css">
+    <link rel="stylesheet" href="../css/absent-list.css">
 </head>
 <body>
     <div id="whole-wrap">
         <header id="default-header">
             <div id="default-header-menu-button"></div>
-            <div id="default-header-text">통계 보기</div>
+            <div id="default-header-text">사전 결석 리스트</div>
             <div id="default-header-message-button"></div>
             <div id="default-header-message-notice" class="no-message"></div>
         </header>
@@ -76,44 +76,15 @@
                     <input type="button" value="황현빈" class="std1-1">
                 </div>
             </div>
-            <div id="date-informations">
-                <p class="informations-text" id="field-trip-text">현체</p>
-                <p class="informations-value" id="field-trip">4</p>
-
-                <p class="informations-side-text">|</p>
-
-                <p class="informations-text" id="going-out-text">외출</p>
-                <p class="informations-value" id="going-out">0</p>
-
-                <p class="informations-side-text">|</p>
-
-                <p class="informations-text" id="being-late-text">지각</p>
-                <p class="informations-value" id="being-late">3</p>
-
-                <p class="informations-side-text">|</p>
-
-                <p class="informations-text" id="admission-absent-text">공결</p>
-                <p class="informations-value" id="admission-absent">2</p>
-                
-                <p class="informations-side-text">|</p>
-
-                <p class="informations-text" id="awol-text">무단</p>
-                <p class="informations-value" id="awol">6</p>
-
-                <p class="informations-side-text">|</p>
-
-                <p class="informations-text" id="total-text">총합</p>
-                <p class="informations-value" id="total">15</p>
-            </div>
             <ul id="information-chart-student" class="information-chart">
                 <li>
-                    <p class="information-date">날짜</p>
+                    <p class="information-date">학생 정보</p>
                     <p class="information-attendance">출석</p>
                     <p class="information-reason">사유</p>
                 </li>
                 <li>
                     <p class="information-date">2020년 01월 01일 09교시</p>
-                    <p class="information-attendance awol">무단</p>
+                    <p class="information-attendance goOut">외출</p>
                     <p class="information-reason">배고파서</p>
                 </li>
                 <li>
@@ -123,7 +94,7 @@
                 </li>
                 <li>
                     <p class="information-date">2020년 01월 01일 09교시</p>
-                    <p class="information-attendance awol">무단</p>
+                    <p class="information-attendance okAbsence">공결</p>
                     <p class="information-reason">배고파서</p>
                 </li>
                 <li>

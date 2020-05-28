@@ -66,9 +66,11 @@ function tCB_Click() {
     teacherModifyButton.classList.toggle('modify-button-mode');
     if(teacherChangeBtn.classList.contains('modify-mode')) {
         teacherChangeBtn.value = '수정모드'
+        teacherModifyButton.value = '교체'
     }
     else {
         teacherChangeBtn.value = '교체모드'
+        teacherModifyButton.value = '수정'
     }
 }
 
