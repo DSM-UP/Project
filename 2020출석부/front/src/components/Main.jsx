@@ -13,7 +13,6 @@ class Main extends PureComponent {
             <Route exact path="/" render={() => <h1>Hello World</h1>} />
             <Route exact path="/signin" render={() => <SignIn />} />
             <Route path="/:service" render={() => <MainComponent />} />
-            
           </Switch>
         </div>
       </Router>

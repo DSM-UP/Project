@@ -195,16 +195,17 @@ function set_event(){
 
 
 function makeCalendar(c_obj) {
+    const week = new Array('일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일');
+    const nowDate = new Date();
     let inner_html_text = `<!DOCTYPE html>
-
     <link rel="stylesheet" href="calendar.css">
     <div id="Calendar_Container">
         <div id="Calendar_Header">
             <div class="Today_Text">
-                <div class="Year_Text">2020</div>년
-                <div class="Month_Text">01</div>월
-                <div class="Day_Text">15</div>일
-                (<div class="Day_Of_The_WeeK">수</div>)
+                <div class="Year_Text">${nowDate.getFullYear()}</div>년
+                <div class="Month_Text">${nowDate.getMonth()+1}</div>월
+                <div class="Day_Text">${nowDate.getDate()}</div>일
+                (<div class="Day_Of_The_WeeK">${week[nowDate.getDay()]}</div>)
             </div>
             <div class="Content_Changer">
                 일정

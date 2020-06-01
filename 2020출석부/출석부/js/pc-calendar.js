@@ -224,7 +224,7 @@ function CalendarWrapper(day_callback) {
                 days[i][j].set_day_number(calendar_data[i][j + 1].day);
                 days[i][j].set_color(calendar_data[i][j + 1].color);
 
-                days_month = month + days[i][j].get_month_offset();
+                let days_month = month + days[i][j].get_month_offset();
                 if (callback != null) {
                     callback(days[i][j], new Date(year, days_month, days[i][j].get_day_number()));
                 }
@@ -236,7 +236,7 @@ function CalendarWrapper(day_callback) {
 
 
     function set_today_text(today_date) {
-        week = ['일', '월', '화', '수', '목', '금', '토'];
+        let week = ['일', '월', '화', '수', '목', '금', '토'];
         document.querySelector('.Year_Text').innerHTML = today_date.getFullYear();
         document.querySelector('.Month_Text').innerHTML = today_date.getMonth() + 1;
         document.querySelector('.Day_Text').innerHTML = today_date.getDate();
@@ -381,9 +381,7 @@ function makeCalendar(c_obj, day_callback) {
                     </div>
                     <div class="Week">
                     </div>
-                    
                 </div>
-                
             </div>
         </div>
     </div>
@@ -397,21 +395,3 @@ function makeCalendar(c_obj, day_callback) {
 }
 
 makeCalendar(document.querySelector(".calendar"));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
