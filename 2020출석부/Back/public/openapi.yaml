@@ -4,9 +4,9 @@ info:
   description: DMI API
   version: 1.0.0
 servers:
-# Added by API Auto Mocking Plugin
-- url: http://arrrrrrrr
-  description: dmi
+  # Added by API Auto Mocking Plugin
+  - url: http://arrrrrrrr
+    description: dmi
 tags:
   - name: authenticate
     description: 인증
@@ -28,7 +28,7 @@ paths:
   /auth:
     get:
       tags:
-      - authenticate
+        - authenticate
       summary: 사용자 정보 얻기
       parameters:
         - name: accessToken
@@ -37,7 +37,7 @@ paths:
           required: true
           type: string
       responses:
-        '200':
+        "200":
           description: success
           content:
             application/json:
@@ -48,14 +48,32 @@ paths:
                     type: integer
                   name:
                     type: string
-        '401':
+        "401":
           description: 유효하지 않은 토큰
-        '403':
+        "403":
+          description: 토큰 유효기간 만료
+  /auth/before-check:
+    get:
+      tags:
+        - authenticate
+      summary: beforeToken 체크
+      parameters:
+        - name: beforeToken
+          in: header
+          description: 비포어 토큰
+          required: true
+          type: string
+      responses:
+        "200":
+          description: success
+        "401":
+          description: 유효하지 않은 토큰
+        "403":
           description: 토큰 유효기간 만료
   /auth/signin:
     post:
       tags:
-      - authenticate
+        - authenticate
       summary: 로그인
       requestBody:
         content:
@@ -71,7 +89,7 @@ paths:
                 password:
                   type: string
       responses:
-        '200':
+        "200":
           description: 로그인 성공
           content:
             application/json:
@@ -80,12 +98,12 @@ paths:
                 properties:
                   beforeToken:
                     type: string
-        '400':
+        "400":
           description: 로그인 정보가 잘못됨
   /auth/floor-decision:
     post:
       tags:
-      - authenticate
+        - authenticate
       summary: 층선택
       parameters:
         - name: beforeToken
@@ -107,7 +125,7 @@ paths:
                 name:
                   type: string
       responses:
-        '200':
+        "200":
           description: 층 선택 성공
           content:
             application/json:
@@ -116,14 +134,14 @@ paths:
                 properties:
                   accessToken:
                     type: string
-        '401':
+        "401":
           description: 유효하지 않은 토큰
-        '403':
+        "403":
           description: 토큰 유효기간 만료
   /auth/signin-pc:
     post:
       tags:
-      - authenticate
+        - authenticate
       summary: pc버전 로그인
       requestBody:
         content:
@@ -139,7 +157,7 @@ paths:
                 password:
                   type: string
       responses:
-        '200':
+        "200":
           description: 로그인 성공
           content:
             application/json:
@@ -148,12 +166,12 @@ paths:
                 properties:
                   accessToken:
                     type: string
-        '400':
+        "400":
           description: 로그인 정보 틀림
   /chat:
     get:
       tags:
-      - chat
+        - chat
       summary: 채팅 리스트 불러오기
       parameters:
         - name: accessToken
@@ -162,7 +180,7 @@ paths:
           required: true
           type: string
       responses:
-        '200':
+        "200":
           description: 채팅 리스트 불러오기 성공
           content:
             application/json:
@@ -192,14 +210,14 @@ paths:
                           type: date
                         updatedAt:
                           type: date
-        '401':
+        "401":
           description: 유효하지 않은 토큰
-        '403':
+        "403":
           description: 토큰 유효기간 만료
   /class/{floor}:
     get:
       tags:
-      - class
+        - class
       summary: 층에 해당하는 반 리스트 가져오기
       parameters:
         - name: floor
@@ -213,7 +231,7 @@ paths:
           required: true
           type: string
       responses:
-        '200':
+        "200":
           description: 반 리스트 가져오기 성공
           content:
             application/json:
@@ -230,14 +248,14 @@ paths:
                       type: date
                     updatedAt:
                       type: date
-        '401':
+        "401":
           description: 유효하지 않은 토큰
-        '403':
+        "403":
           description: 토큰 유효기간 만료
   /student:
     get:
       tags:
-      - student
+        - student
       summary: 주어진 학년, 반의 학생 리스트 가져오기
       parameters:
         - name: grade
@@ -256,7 +274,7 @@ paths:
           required: true
           type: string
       responses:
-        '200':
+        "200":
           description: success
           content:
             application/json:
@@ -279,14 +297,14 @@ paths:
                       type: integer
                     classId:
                       type: integer
-        '401':
+        "401":
           description: 유효하지 않은 토큰
-        '403':
+        "403":
           description: 토큰 유효기간 만료
   /club/{floor}:
     get:
       tags:
-      - club
+        - club
       summary: 해당 층에 있는 동아리 목록 가져오기
       parameters:
         - name: floor
@@ -300,7 +318,7 @@ paths:
           required: true
           type: string
       responses:
-        '200':
+        "200":
           description: success
           content:
             application/json:
@@ -321,14 +339,14 @@ paths:
                       type: date
                     updatedAt:
                       type: date
-        '401':
+        "401":
           description: 유효하지 않은 토큰
-        '403':
+        "403":
           description: 토큰 유효기간 만료
   /attendance/teachers:
     get:
       tags:
-      - attendance
+        - attendance
       summary: 해당 날짜의 출석 담당 선생님 리스트 가져오기(층 선택때 호출)
       parameters:
         - name: beforeToken
@@ -352,16 +370,16 @@ paths:
           required: true
           type: integer
       responses:
-        '200':
+        "200":
           description: 이거 선생님들 리스트 오는데 어떤식으로 가는지 기억이 안나서 console.log로 찍어보셈. ㅈㅅ
-        '401':
+        "401":
           description: 유효하지 않은 토큰
-        '403':
+        "403":
           description: 토큰 유효기간 만료
   /absence/{studentId}:
     post:
       tags:
-      - absence
+        - absence
       summary: 사전 결석 등록
       requestBody:
         content:
@@ -389,20 +407,20 @@ paths:
           required: true
           type: integer
       responses:
-        '200':
+        "200":
           description: 성공
-        '401':
+        "401":
           description: 유효하지 않은 토큰
-        '403':
+        "403":
           description: 토큰 유효기간 만료
-        '400':
+        "400":
           description: from이 to보다 과거여야 한다,
-        '402':
+        "402":
           description: purpose가 널이면 안됨.
   /activity:
     get:
       tags:
-      - attendance
+        - attendance
       summary: 해당 날짜의 방과후 활동 조회
       parameters:
         - name: accessToken
@@ -426,7 +444,7 @@ paths:
           required: true
           type: integer
       responses:
-        '200':
+        "200":
           description: 성공
           content:
             application/json:
@@ -435,13 +453,13 @@ paths:
                 properties:
                   activity:
                     type: integer
-        '401':
+        "401":
           description: 유효하지 않은 토큰
-        '403':
+        "403":
           description: 토큰 유효기간 만료
     patch:
       tags:
-      - attendance
+        - attendance
       summary: 특정 날짜의 방과후 활동 수정하기
       parameters:
         - name: accessToken
@@ -473,16 +491,16 @@ paths:
                 activity:
                   type: integer
       responses:
-        '200':
+        "200":
           description: 수정 성공
-        '401':
+        "401":
           description: 유효하지 않은 토큰
-        '403':
+        "403":
           description: 토큰 유효기간 만료
   /activity-each:
     patch:
       tags:
-      - attendance
+        - attendance
       summary: 특정 날짜끼리 방과후 활동 교체
       parameters:
         - name: accessToken
@@ -523,16 +541,16 @@ paths:
                     1: 4
                     2: 25
       responses:
-        '200':
+        "200":
           description: 성공
-        '401':
+        "401":
           description: 유효하지 않은 토큰
-        '403':
+        "403":
           description: 토큰 유효기간 만료
   /teachers:
     get:
       tags:
-      - teacher
+        - teacher
       summary: 선생님 리스트 가져오기
       parameters:
         - name: accessToken
@@ -541,7 +559,7 @@ paths:
           required: true
           type: string
       responses:
-        '200':
+        "200":
           description: 성공
           content:
             application/json:
@@ -556,7 +574,7 @@ paths:
                       type: string
     patch:
       tags:
-      - teacher
+        - teacher
       summary: 특정 날짜의 출석 담당 선생님 변경
       parameters:
         - name: accessToken
@@ -592,16 +610,16 @@ paths:
                 f4:
                   type: string
       responses:
-        '200':
+        "200":
           description: 성공
-        '401':
+        "401":
           description: 유효하지 않은 토큰
-        '403':
+        "403":
           description: 토큰 유효기간 만료
   /teachers/specific:
     get:
       tags:
-      - teacher
+        - teacher
       summary: 특정 날짜의 출석 담당 선생님 가져오기
       parameters:
         - name: accessToken
@@ -625,7 +643,7 @@ paths:
           required: true
           type: integer
       responses:
-        '200':
+        "200":
           description: 성공
           content:
             application/json:
@@ -642,14 +660,14 @@ paths:
                   f2: 이진혁
                   f3: 손정우
                   f4: 에프포
-        '401':
+        "401":
           description: 유효하지 않은 토큰
-        '403':
+        "403":
           description: 토큰 유효기간 만료
   /teacher-each:
     patch:
       tags:
-      - teacher
+        - teacher
       summary: 특정 날짜의 출석 담당 선생님끼리 교환
       parameters:
         - name: accessToken
