@@ -164,6 +164,7 @@ router.get("/teachers/specific", jwtCheck, (req, res) => {
       break;
     }
   }
+  console.log(teachers);
   res.status(200).json({ teachers });
 });
 
@@ -206,7 +207,7 @@ router.patch("/teachers", jwtCheck, (req, res) => {
   res.status(200).json({});
 });
 
-router.patch("/teacher-each", (req, res) => {
+router.patch("/teacher-each", jwtCheck, (req, res) => {
   const { date1, date2, selected1, selected2, floor1, floor2 } = req.body;
   let teacherIdx1 = null,
     teacherIdx2 = null;
