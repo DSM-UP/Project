@@ -285,7 +285,7 @@ router.get("/create/students", async (req, res) => {
       name: v.name,
       number: v.number,
       classId: c.id,
-      clubId: 0,
+      clubId: 1,
     });
   });
   res.json({});
