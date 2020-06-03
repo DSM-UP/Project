@@ -10,4 +10,4 @@ export default `#checkbutton {
     position: absolute;
     left: 30%;
     bottom: 10%;
-}`
+}`;

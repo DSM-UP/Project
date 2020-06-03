@@ -18,14 +18,17 @@ class AttendanceSelect extends PureComponent {
       const res = await Axios.get(
         `http://3.34.125.239/teachers/specific?year=${date.getFullYear()}&month=${
           date.getMonth() + 1
-        }&day=${date.getDate()}`,
+        }&day=${date.getDate() + 1}`,
         { headers: { accessToken } }
       );
       const { f2, f3, f4 } = res.data.teachers;
       const res2 = await Axios.get(
         `http://3.34.125.239/activity?year=${date.getFullYear()}&month=${
           date.getMonth() + 1
-        }&day=${date.getDate()}`
+        }&day=${date.getDate() + 1}`,
+        {
+          headers: { accessToken },
+        }
       );
       const { work } = res2.data.activity;
       this.setState({

@@ -13,7 +13,7 @@ class ScheduleBox extends PureComponent {
     const day = date.getDate();
     const accessToken = localStorage.getItem("accessToken");
     Axios.get(
-      `http://3.34.125.239/activity?year=${year}&month=${month}&day=${day}`,
+      `http://3.34.125.239/activity?year=${year}&month=${month}&day=${day + 1}`,
       { headers: { accessToken } }
     )
       .then((res) => {

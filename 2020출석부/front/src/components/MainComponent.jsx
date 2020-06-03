@@ -42,13 +42,14 @@ class MainComponent extends PureComponent {
   };
 
   componentWillMount() {
-    Axios.get("http://3.34.125.239/auth", {
+    Axios.get("http://3.34.125.239/auth/access-check", {
       headers: { accessToken: localStorage.getItem("accessToken") },
     })
       .then((res) => {
         this.setState({ user: res.data.user });
       })
       .catch((err) => {
+        console.log(err);
         if (err.status === 403) {
           Axios.get("http://3.34.125.239/auth/refresh", {
             headers: { refreshToken: localStorage.getItem("refreshToken") },

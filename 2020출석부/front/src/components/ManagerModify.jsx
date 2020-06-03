@@ -19,7 +19,9 @@ class ManagerModify extends PureComponent {
     const _date = e.target.value;
     const date = _date.split("-");
     Axios.get(
-      `http://3.34.125.239/teachers/specific?year=${date[0]}&month=${date[1]}&day=${date[2]}`,
+      `http://3.34.125.239/teachers/specific?year=${date[0]}&month=${
+        date[1]
+      }&day=${Number(date[2]) + 1}`,
       { headers: { accessToken } }
     )
       .then((res) => {
@@ -51,7 +53,9 @@ class ManagerModify extends PureComponent {
         console.error(err);
       });
     Axios.get(
-      `http://3.34.125.239/teachers/specific?year=${year}&month=${month}&day=${day}`,
+      `http://3.34.125.239/teachers/specific?year=${year}&month=${month}&day=${
+        day + 1
+      }`,
       { headers: { accessToken } }
     )
       .then((res) => {

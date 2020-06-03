@@ -15,21 +15,15 @@ class RealSignIn extends PureComponent {
     const { username, password } = this.state;
     Axios.post("http://3.34.125.239/auth/signin", { username, password })
       .then((res) => {
-        if (res.status === 200) {
-          const { beforeToken } = res.data;
-          const expires = new Date();
-          expires.setDate(expires.getDate() + 7);
-          cookie.save("username", username, { expires });
-          localStorage.setItem("beforeToken", beforeToken);
-          this.props.setStateTrue();
-        }
+        const { beforeToken } = res.data;
+        localStorage.setItem("beforeToken", beforeToken);
+        const expires = new Date();
+        expires.setDate(expires.getDate() + 7);
+        cookie.save("username", username, { expires });
+        this.props.setStateTrue();
       })
       .catch((err) => {
-        if (err.status === 400) {
-          alert("로그인 정보 틀림");
-        } else {
-          console.error(err);
-        }
+        alert("로그인 정보 틀림");
       });
   };
 

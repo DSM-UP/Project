@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require("path");
 
 export default `* {margin: 0;padding: 0;}
 
@@ -37,7 +37,7 @@ a {
 #default-header-menu-button {
     width: 100px;
     height: 100px;
-    background: url('http://13.209.68.218/image/menu-icon.png') no-repeat;
+    background: url('http://3.34.125.239/image/menu-icon.png') no-repeat;
     background-size: 80px 80px;
     position: absolute;
     left: 30px;
@@ -57,7 +57,7 @@ a {
 #default-header-message-button {
     width: 100px;
     height: 100px;
-    background: url('http://13.209.68.218/image/message-icon.png') no-repeat;
+    background: url('http://3.34.125.239/image/message-icon.png') no-repeat;
     background-size: 90px 80px;
     position: absolute;
     right: 20px;
@@ -310,7 +310,7 @@ a {
     right: 20px;
     width: 120px;
     height: 120px;
-    background: url('http://13.209.68.218/image/close-icon.png') no-repeat;
+    background: url('http://3.34.125.239/image/close-icon.png') no-repeat;
     background-size: 120px 120px;
     z-index: 2;
 }

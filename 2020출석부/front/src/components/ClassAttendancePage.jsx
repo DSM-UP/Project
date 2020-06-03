@@ -126,6 +126,8 @@ class ClassAttendancePage extends PureComponent {
         { unsaved },
         { headers: { accessToken } }
       );
+      alert("성공적으로 저장되었습니다.");
+      window.location.reload();
     } catch (err) {
       if (err.status === 403 || err.status === 401) {
         localStorage.clear();
@@ -169,20 +171,16 @@ class ClassAttendancePage extends PureComponent {
             <li>
               <input
                 onClick={
-                  date.getDay() !== 5
+                  date.getDay() === 5
                     ? () => alert("오늘은 7교시가 없습니다.")
                     : this.onClickPeriod(7)
                 }
                 type="button"
                 value="7교시"
                 id="class-7"
-                className={
-                  date.getDay() !== 5
-                    ? "before-class"
-                    : period === 7
-                    ? "now-class"
-                    : ""
-                }
+                className={`${date.getDay() === 5 ? "before-class" : ""} ${
+                  period === 7 ? "now-class" : ""
+                }`}
               />
             </li>
             <li>

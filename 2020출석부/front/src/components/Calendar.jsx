@@ -16,7 +16,7 @@ class Calendar extends PureComponent {
     makeCalendar(this.calendar, (day, date) => {
       const year = date.getFullYear();
       const month = date.getMonth() + 1;
-      const d = date.getDate();
+      const d = date.getDate() - 1;
       const accessToken = localStorage.getItem("accessToken");
       Axios.get(
         `http://3.34.125.239/teachers/specific?year=${year}&month=${month}&day=${d}`,

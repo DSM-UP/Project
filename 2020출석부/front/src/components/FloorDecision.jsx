@@ -10,26 +10,29 @@ class FloorDecision extends PureComponent {
     f4: "",
   };
 
-  componentWillMount() {
-    const date = new Date();
-    Axios.get(
-      `http://3.34.125.239/attendance/teachers?year=${date.getFullYear()}&month=${
-        date.getMonth() + 1
-      }&day=${date.getDate()}`,
-      { headers: { beforeToken: localStorage.getItem("beforeToken") } }
-    )
-      .then((res) => {
-        const { f2, f3, f4 } = res.data.teachers;
-        this.setState({ f2, f3, f4 });
-      })
-      .catch((err) => {
-        localStorage.clear();
-        this.props.setStateFalse();
-      });
-  }
+  componentWillMount() {}
 
   componentDidMount() {
     styleGod(document, DEFAULT, SELECT_PAGE);
+    const date = new Date();
+    const beforeToken = localStorage.getItem("beforeToken");
+    console.log(`hello ${beforeToken}`);
+    Axios.get(
+      `http://3.34.125.239/attendance/teachers?year=${date.getFullYear()}&month=${
+        date.getMonth() + 1
+      }&day=${date.getDate() + 1}`,
+      { headers: { beforeToken } }
+    )
+      .then((res) => {
+        console.log(res);
+        const { f2, f3, f4 } = res.data.teachers;
+        return this.setState({ f2, f3, f4 });
+      })
+      .catch((err) => {
+        console.log(err);
+        localStorage.clear();
+        this.props.setStateFalse();
+      });
   }
 
   onClick2 = () => {
