@@ -4,7 +4,7 @@ const { encodeDate, decodeDate } = require("./encodeDate");
 const { Op } = Sequelize;
 
 module.exports = () => {
-  return schedule.scheduleJob("0 21 * * * MON-FRI", async () => {
+  return schedule.scheduleJob("0 0 0 * * MON-FRI", async () => {
     const date = new Date();
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
