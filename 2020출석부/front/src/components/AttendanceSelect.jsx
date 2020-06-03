@@ -1,29 +1,43 @@
-import React, { PureComponent } from 'react'
-import Axios from 'axios';
-import styleGod, { DEFAULT, ATTENDANCE_SELECT } from '../js/styleGod';
-import { Link, withRouter } from 'react-router-dom'
+import React, { PureComponent } from "react";
+import Axios from "axios";
+import styleGod, { DEFAULT, ATTENDANCE_SELECT } from "../js/styleGod";
+import { Link, withRouter } from "react-router-dom";
 
 class AttendanceSelect extends PureComponent {
   state = {
-    f2: '',
-    f3: '',
-    f4: '',
-    activity: ''
+    f2: "",
+    f3: "",
+    f4: "",
+    activity: "",
   };
   async componentWillMount() {
     styleGod(document, DEFAULT, ATTENDANCE_SELECT);
     const date = new Date();
-    const accessToken = localStorage.getItem('accessToken');
+    const accessToken = localStorage.getItem("accessToken");
     try {
-      const res = await Axios.get(`http://13.209.68.218/teachers/specific?year=${date.getFullYear()}&month=${date.getMonth() + 1}&day=${date.getDate()}`, { headers: { accessToken } });
+      const res = await Axios.get(
+        `http://3.34.125.239/teachers/specific?year=${date.getFullYear()}&month=${
+          date.getMonth() + 1
+        }&day=${date.getDate()}`,
+        { headers: { accessToken } }
+      );
       const { f2, f3, f4 } = res.data.teachers;
-      const res2 = await Axios.get(`http://13.209.68.218/activity?year=${date.getFullYear()}&month=${date.getMonth() + 1}&day=${date.getDate()}`);
+      const res2 = await Axios.get(
+        `http://3.34.125.239/activity?year=${date.getFullYear()}&month=${
+          date.getMonth() + 1
+        }&day=${date.getDate()}`
+      );
       const { work } = res2.data.activity;
-      this.setState({ f2, f3, f4, activity: work === 2 ? 'class' : work === 3 ? 'club' : 'club' })
+      this.setState({
+        f2,
+        f3,
+        f4,
+        activity: work === 2 ? "class" : work === 3 ? "club" : "club",
+      });
     } catch (err) {
       if (err.status === 403 || err.status === 401) {
         localStorage.clear();
-        return this.props.history.push('/signin');
+        return this.props.history.push("/signin");
       }
       console.error(err);
     }
@@ -59,7 +73,7 @@ class AttendanceSelect extends PureComponent {
           </Link>
         </section>
       </>
-    )
+    );
   }
 }
 
