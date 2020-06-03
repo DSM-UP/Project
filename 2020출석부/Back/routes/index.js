@@ -285,7 +285,7 @@ router.get("/create/students", async (req, res) => {
       name: v.name,
       number: v.number,
       classId: c.id,
-      clubId: Math.floor(Math.random() * 10 + 1),
+      clubId: 0,
     });
   });
   res.json({});
