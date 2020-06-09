@@ -29,4 +29,13 @@ router.post("/:studentId", jwtCheck, async (req, res, next) => {
   }
 });
 
+router.get("/", jwtCheck, async (req, res, next) => {
+  try {
+    const absences = await Absence.findAll();
+    res.status(200).json(absences);
+  } catch (err) {
+    next(err);
+  }
+});
+
 module.exports = router;
