@@ -12,7 +12,7 @@ const {
 } = require("../models");
 const { Op } = Sequelize;
 
-router.get("/teachers", beforeCheck, async (req, res, next) => {
+router.get("/teachers", async (req, res, next) => {
   const { year, month, day } = req.query;
   const wb = xlsx.readFile(
     path.join(__dirname, "../documents/managerSchedule.xlsx"),

@@ -1,9 +1,25 @@
 const router = require("express").Router();
 const xlsx = require("xlsx");
 const path = require("path");
-const { Teacher, Class, Student, Sequelize, Club } = require("../models");
+const {
+  Teacher,
+  Class,
+  Student,
+  Sequelize,
+  Club,
+  Report,
+} = require("../models");
 const { Op } = Sequelize;
 const jwtCheck = require("../middlewares/jwtCheck");
+
+router.post("/report", jwtCheck, async (req, res, next) => {
+  const { name } = req.decoded;
+  const { content } = req.body;
+  try {
+    await Report.create({ name, content });
+    res.status(200).json();
+  } catch (err) {}
+});
 
 router.get("/activity", jwtCheck, async (req, res, next) => {
   const { year, month, day } = req.query;
