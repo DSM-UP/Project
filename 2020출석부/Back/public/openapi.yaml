@@ -1,0 +1,713 @@
+openapi: 3.0.0
+info:
+  title: DMI API
+  description: DMI API
+  version: 1.0.0
+servers:
+  # Added by API Auto Mocking Plugin
+  - url: http://arrrrrrrr
+    description: dmi
+tags:
+  - name: authenticate
+    description: 인증
+  - name: chat
+    description: 채팅
+  - name: class
+    description: 반
+  - name: student
+    description: 학생
+  - name: club
+    description: 동아리
+  - name: attendance
+    description: 출석
+  - name: absence
+    description: 부재
+  - name: teacher
+    description: 선생님
+paths:
+  /auth:
+    get:
+      tags:
+        - authenticate
+      summary: 사용자 정보 얻기
+      parameters:
+        - name: accessToken
+          in: header
+          description: 액세스 토큰
+          required: true
+          type: string
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  floor:
+                    type: integer
+                  name:
+                    type: string
+        "401":
+          description: 유효하지 않은 토큰
+        "403":
+          description: 토큰 유효기간 만료
+  /auth/before-check:
+    get:
+      tags:
+        - authenticate
+      summary: beforeToken 체크
+      parameters:
+        - name: beforeToken
+          in: header
+          description: 비포어 토큰
+          required: true
+          type: string
+      responses:
+        "200":
+          description: success
+        "401":
+          description: 유효하지 않은 토큰
+        "403":
+          description: 토큰 유효기간 만료
+  /auth/signin:
+    post:
+      tags:
+        - authenticate
+      summary: 로그인
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - username
+                - password
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+      responses:
+        "200":
+          description: 로그인 성공
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  beforeToken:
+                    type: string
+        "400":
+          description: 로그인 정보가 잘못됨
+  /auth/floor-decision:
+    post:
+      tags:
+        - authenticate
+      summary: 층선택
+      parameters:
+        - name: beforeToken
+          in: header
+          description: 로그인 때 받은 토큰
+          required: true
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - floor
+                - name
+              properties:
+                floor:
+                  type: number
+                name:
+                  type: string
+      responses:
+        "200":
+          description: 층 선택 성공
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  accessToken:
+                    type: string
+        "401":
+          description: 유효하지 않은 토큰
+        "403":
+          description: 토큰 유효기간 만료
+  /auth/signin-pc:
+    post:
+      tags:
+        - authenticate
+      summary: pc버전 로그인
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - username
+                - password
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+      responses:
+        "200":
+          description: 로그인 성공
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  accessToken:
+                    type: string
+        "400":
+          description: 로그인 정보 틀림
+  /chat:
+    get:
+      tags:
+        - chat
+      summary: 채팅 리스트 불러오기
+      parameters:
+        - name: accessToken
+          in: header
+          description: 액세스 토큰
+          required: true
+          type: string
+      responses:
+        "200":
+          description: 채팅 리스트 불러오기 성공
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    content:
+                      type: string
+                    floor:
+                      type: integer
+                    createdAt:
+                      type: date
+                    updatedAt:
+                      type: date
+                    teacherId:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        name:
+                          type: string
+                        createdAt:
+                          type: date
+                        updatedAt:
+                          type: date
+        "401":
+          description: 유효하지 않은 토큰
+        "403":
+          description: 토큰 유효기간 만료
+  /class/{floor}:
+    get:
+      tags:
+        - class
+      summary: 층에 해당하는 반 리스트 가져오기
+      parameters:
+        - name: floor
+          in: path
+          description: 불러올 반의 층
+          required: true
+          type: integer
+        - name: accessToken
+          in: header
+          description: 액세스 토큰
+          required: true
+          type: string
+      responses:
+        "200":
+          description: 반 리스트 가져오기 성공
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    grade:
+                      type: integer
+                    class:
+                      type: integer
+                    createdAt:
+                      type: date
+                    updatedAt:
+                      type: date
+        "401":
+          description: 유효하지 않은 토큰
+        "403":
+          description: 토큰 유효기간 만료
+  /student:
+    get:
+      tags:
+        - student
+      summary: 주어진 학년, 반의 학생 리스트 가져오기
+      parameters:
+        - name: grade
+          in: query
+          description: 학년
+          required: true
+          type: integer
+        - name: classs
+          in: query
+          description: 반. s 3개 맞음.
+          required: true
+          type: integer
+        - name: accessToken
+          in: header
+          description: 액세스 토큰
+          required: true
+          type: string
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    number:
+                      type: integer
+                    name:
+                      type: string
+                    createdAt:
+                      type: date
+                    updatedAt:
+                      type: date
+                    clubId:
+                      type: integer
+                    classId:
+                      type: integer
+        "401":
+          description: 유효하지 않은 토큰
+        "403":
+          description: 토큰 유효기간 만료
+  /club/{floor}:
+    get:
+      tags:
+        - club
+      summary: 해당 층에 있는 동아리 목록 가져오기
+      parameters:
+        - name: floor
+          in: path
+          description: 층
+          required: true
+          type: integer
+        - name: accessToken
+          in: header
+          description: 액세스 토큰
+          required: true
+          type: string
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    floor:
+                      type: integer
+                    place:
+                      type: string
+                    createdAt:
+                      type: date
+                    updatedAt:
+                      type: date
+        "401":
+          description: 유효하지 않은 토큰
+        "403":
+          description: 토큰 유효기간 만료
+  /attendance/teachers:
+    get:
+      tags:
+        - attendance
+      summary: 해당 날짜의 출석 담당 선생님 리스트 가져오기(층 선택때 호출)
+      parameters:
+        - name: beforeToken
+          in: header
+          description: 층 선택때 호출하는 api이기 때문에 비포어토큰
+          required: true
+          type: string
+        - name: year
+          in: query
+          description: 연도
+          required: true
+          type: integer
+        - name: month
+          in: query
+          description: 달
+          required: true
+          type: integer
+        - name: day
+          in: query
+          description: 일
+          required: true
+          type: integer
+      responses:
+        "200":
+          description: 이거 선생님들 리스트 오는데 어떤식으로 가는지 기억이 안나서 console.log로 찍어보셈. ㅈㅅ
+        "401":
+          description: 유효하지 않은 토큰
+        "403":
+          description: 토큰 유효기간 만료
+  /absence/{studentId}:
+    post:
+      tags:
+        - absence
+      summary: 사전 결석 등록
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reason:
+                  type: string
+                purpose:
+                  type: integer
+                from:
+                  type: integer
+                to:
+                  type: integer
+      parameters:
+        - name: accessToken
+          in: header
+          description: 액세스 토큰
+          required: true
+          type: string
+        - name: studentId
+          in: path
+          description: 학생 고유 번호
+          required: true
+          type: integer
+      responses:
+        "200":
+          description: 성공
+        "401":
+          description: 유효하지 않은 토큰
+        "403":
+          description: 토큰 유효기간 만료
+        "400":
+          description: from이 to보다 과거여야 한다,
+        "402":
+          description: purpose가 널이면 안됨.
+  /activity:
+    get:
+      tags:
+        - attendance
+      summary: 해당 날짜의 방과후 활동 조회
+      parameters:
+        - name: accessToken
+          in: header
+          description: 액세스 토큰
+          required: true
+          type: string
+        - name: year
+          in: query
+          description: 연도
+          required: true
+          type: integer
+        - name: month
+          in: query
+          description: 달
+          required: true
+          type: integer
+        - name: day
+          in: query
+          description: 일
+          required: true
+          type: integer
+      responses:
+        "200":
+          description: 성공
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  activity:
+                    type: integer
+        "401":
+          description: 유효하지 않은 토큰
+        "403":
+          description: 토큰 유효기간 만료
+    patch:
+      tags:
+        - attendance
+      summary: 특정 날짜의 방과후 활동 수정하기
+      parameters:
+        - name: accessToken
+          in: header
+          description: 액세스 토큰
+          required: true
+          type: string
+        - name: year
+          in: query
+          description: 연도
+          required: true
+          type: integer
+        - name: month
+          in: query
+          description: 월
+          required: true
+          type: integer
+        - name: day
+          in: query
+          description: 일
+          required: true
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                activity:
+                  type: integer
+      responses:
+        "200":
+          description: 수정 성공
+        "401":
+          description: 유효하지 않은 토큰
+        "403":
+          description: 토큰 유효기간 만료
+  /activity-each:
+    patch:
+      tags:
+        - attendance
+      summary: 특정 날짜끼리 방과후 활동 교체
+      parameters:
+        - name: accessToken
+          in: header
+          description: 액세스 토큰
+          required: true
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                date1:
+                  type: array
+                  items:
+                    year:
+                      type: integer
+                    month:
+                      type: integer
+                    day:
+                      type: integer
+                  example:
+                    0: 2020
+                    1: 4
+                    2: 23
+                date2:
+                  type: array
+                  items:
+                    year:
+                      type: integer
+                    month:
+                      type: integer
+                    day:
+                      type: integer
+                  example:
+                    0: 2020
+                    1: 4
+                    2: 25
+      responses:
+        "200":
+          description: 성공
+        "401":
+          description: 유효하지 않은 토큰
+        "403":
+          description: 토큰 유효기간 만료
+  /teachers:
+    get:
+      tags:
+        - teacher
+      summary: 선생님 리스트 가져오기
+      parameters:
+        - name: accessToken
+          in: header
+          description: 액세스 토큰
+          required: true
+          type: string
+      responses:
+        "200":
+          description: 성공
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+    patch:
+      tags:
+        - teacher
+      summary: 특정 날짜의 출석 담당 선생님 변경
+      parameters:
+        - name: accessToken
+          in: header
+          description: 액세스 토큰
+          required: true
+          type: string
+        - name: year
+          in: query
+          description: 연도
+          required: true
+          type: integer
+        - name: month
+          in: query
+          description: 월
+          required: true
+          type: integer
+        - name: day
+          in: query
+          description: 일
+          required: true
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                f2:
+                  type: string
+                f3:
+                  type: string
+                f4:
+                  type: string
+      responses:
+        "200":
+          description: 성공
+        "401":
+          description: 유효하지 않은 토큰
+        "403":
+          description: 토큰 유효기간 만료
+  /teachers/specific:
+    get:
+      tags:
+        - teacher
+      summary: 특정 날짜의 출석 담당 선생님 가져오기
+      parameters:
+        - name: accessToken
+          in: header
+          description: 액세스 토큰
+          required: true
+          type: string
+        - name: year
+          in: query
+          description: 연도
+          required: true
+          type: integer
+        - name: month
+          in: query
+          description: 월
+          required: true
+          type: integer
+        - name: day
+          in: query
+          description: 일
+          required: true
+          type: integer
+      responses:
+        "200":
+          description: 성공
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  f2:
+                    type: string
+                  f3:
+                    type: string
+                  f4:
+                    type: string
+                example:
+                  f2: 이진혁
+                  f3: 손정우
+                  f4: 에프포
+        "401":
+          description: 유효하지 않은 토큰
+        "403":
+          description: 토큰 유효기간 만료
+  /teacher-each:
+    patch:
+      tags:
+        - teacher
+      summary: 특정 날짜의 출석 담당 선생님끼리 교환
+      parameters:
+        - name: accessToken
+          in: header
+          description: 액세스 토큰
+          required: true
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                date1:
+                  type: array
+                  items:
+                    year:
+                      type: integer
+                    month:
+                      type: integer
+                    day:
+                      type: integer
+                  example:
+                    0: 2020
+                    1: 4
+                    2: 23
+                date2:
+                  type: array
+                  items:
+                    year:
+                      type: integer
+                    month:
+                      type: integer
+                    day:
+                      type: integer
+                  example:
+                    0: 2020
+                    1: 4
+                    2: 25
+                floor1:
+                  type: integer
+                floor2:
+                  type: integer

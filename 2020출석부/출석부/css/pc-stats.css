@@ -1,0 +1,221 @@
+#whole-wrap {
+    min-width: 1400px;
+    min-height: 750px;
+}
+
+#pc-stats-section {
+    width: 100%;
+    margin-top: 10px;
+}
+
+#pc-stats-section > div {
+    display: inline-block;
+    position: absolute;
+}
+
+#pc-stats-section > div:nth-of-type(2n+1) {
+    width: 40%;
+}
+
+#pc-stats-student-wrapper {
+    left: 5%;
+}
+
+.pc-stats-header-text {
+    width: 100%;
+    font-size: 32px;
+    font-weight: bold;
+    color: #87cefa;
+    text-align: center;
+}
+
+.pc-stats-info-box {
+    width: 100%;
+    border: 2px solid #87cefa;
+}
+
+.pc-stats-info-box > p {
+    display: inline-block;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.pc-stats-stats {
+    float: right;
+    display: block;
+    margin-top: 20px;
+}
+
+.pc-stats-stats > p{
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.pc-stats-information-chart > li > p{
+    display: inline-block;
+}
+
+.pc-stats-information-chart {
+    margin-top: 44px;
+    position: relative;
+}
+
+.pc-stats-information-chart > li {
+    width: 100%;
+    display: inline-block;
+    font-size: 0;
+    margin-bottom: 15px;
+}
+
+.pc-stats-information-chart > li:nth-of-type(n + 2) {
+    margin-bottom: 5px !important;
+}
+
+.pc-stats-information-chart > li::after{
+    width: 90%;
+    height: 0px;
+    border: 2px solid #C75252;
+    position: absolute;
+    z-index: -1;
+    content: ' ';
+    transform: translateX(-100%) translateY(400%);
+}
+
+.pc-stats-information-chart > li:nth-child(1) > p {
+    background: #C75252;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    padding: 6px 0; 
+}
+
+.pc-stats-information-chart > li:nth-of-type(n + 2) > p {
+    border: 2px solid #C75252;
+    background: white;
+    font-size: 16px;
+    text-align: center;
+    padding: 6px 0;
+    height: 39px;
+    box-sizing: border-box;
+}
+
+.pc-stats-information-chart > li > p:nth-child(1) {
+    width: 40%;
+    margin-right: 5%;
+}
+
+.pc-stats-information-chart > li > p:nth-child(2) {
+    width: 15%;
+    margin-right: 5%;
+    font-weight: bold;
+}
+
+.pc-stats-information-chart > li > p:nth-child(3) {
+    width: 35%;
+}
+
+#pc-stats-hr {
+    width: 1px;
+    height: 80%;
+    border: 2px solid #87cefa;
+    left: 50%;
+    margin-top: 30px;
+}
+
+#pc-stats-date-wrapper {
+    right: 5%;
+}
+
+.pc-stats-information-chart > li > p.pc-stats-awol {
+    color: #ff0000;
+}
+
+#pc-stats-student-wrapper > div > select {
+    display: inline-block;
+    width: 15%;
+    border: 2px solid #87cefa;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 2px;
+    margin-right: 10px;
+}
+
+#pc-stats-date {
+    width: 45%;
+    border: 2px solid #87cefa;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 0px 5px;
+}
+
+#pc-stats-date-class {
+    width: 20%;
+    border: 2px solid #87cefa;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 2px 5px;
+    margin-left: 20px;
+}
+
+#pc-stats-student-left {
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: none;
+    border-right: 25px solid #bfbfbf;
+    background: none;
+    position: absolute;
+    bottom: 8%;
+    left: 22%;
+}
+
+#pc-stats-student-right {
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: none;
+    border-left: 25px solid #bfbfbf;
+    background: none;
+    position: absolute;
+    bottom: 8%;
+    left: 27%;
+}
+
+#pc-stats-date-left {
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: none;
+    border-right: 25px solid #bfbfbf;
+    background: none;
+    position: absolute;
+    bottom: 8%;
+    right: 27%;
+}
+
+#pc-stats-date-right {
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: none;
+    border-left: 25px solid #bfbfbf;
+    background: none;
+    position: absolute;
+    bottom: 8%;
+    right: 22%;
+}
+
+.pc-stats-move-button {
+    transition: transform 0.3s;
+    outline: none;
+}
+
+.pc-stats-move-button:hover {
+    transform: scale(1.2);
+}

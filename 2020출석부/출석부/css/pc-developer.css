@@ -1,0 +1,120 @@
+#whole-wrap  {
+    min-width: 1530px;
+    min-height: 715px;
+}
+
+#team {
+    margin-top: 2z0px;
+    width: 100%;
+    height: 220px;
+    background: #87cefa;
+    position: relative;
+}
+
+#team > p {
+    display: inline-block;
+    color: white;
+    position: absolute;
+}
+
+#team > p:nth-child(2) {
+    font-size: 48px;
+    font-weight: bold;
+    top: 40px;
+    margin-left: 50px;
+}
+
+#team > p:nth-child(3) {
+    font-size: 24px;
+    top: 120px;
+    margin-left: 50px;
+    width: 700px;
+}
+
+#team-logo {
+    background-image: url('../image/DMI-Logo.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    margin: 10px 100px 0 200px;
+}
+
+#pc-developer-section {
+    position: relative;
+}
+
+#pc-developer-title {
+    width: 100%;
+    color: #87cefa;
+    line-height: 100%;
+    font-size: 32px;
+    margin: 20px 60px 0 60px;
+}
+
+#pc-developer-title::before {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background: #87cefa;
+    content: "　";
+    margin: 10px 0 0 -30px;
+}
+
+#pc-developer-wrapper {
+    margin-left: 2%;
+    margin-top: 20px;
+}
+#pc-developer-wrapper > .pc-developer-div {
+    width: 200px;
+    height: 300px;
+    display: inline-block;
+    background: #87cefa;
+    border-radius: 40px;
+    margin: 20px 20px;
+}
+
+#pc-developer-wrapper > .pc-developer-div > .pc-developer-image {
+    width: 140px;
+    height: 140px;
+    margin-top: 30px;
+    margin-left: 30px;
+    background-size: 140px 140px;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+}
+
+#pc-developer-wrapper > .pc-developer-div > .pc-developer-name, #pc-developer-wrapper > .pc-developer-div > .pc-developer-major  {
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#pc-developer-wrapper > .pc-developer-div:nth-child(1) > .pc-developer-image {
+    background-image: url('../image/developer/공영길.jpg');
+}
+
+#pc-developer-wrapper > .pc-developer-div:nth-child(2) > .pc-developer-image {
+    background-image: url('../image/developer/김대웅.jpg');
+}
+
+#pc-developer-wrapper > .pc-developer-div:nth-child(3) > .pc-developer-image {
+    background-image: url('../image/developer/손정우.jpg');
+}
+
+#pc-developer-wrapper > .pc-developer-div:nth-child(4) > .pc-developer-image {
+    background-image: url('../image/developer/안영준.PNG');
+}
+
+#pc-developer-wrapper > .pc-developer-div:nth-child(5) > .pc-developer-image {
+    background-image: url('../image/developer/유시온.jpg');
+}
+
+#pc-developer-wrapper > .pc-developer-div:nth-child(6) > .pc-developer-image {
+    background-image: url('../image/developer/이진혁.jpg');
+}
