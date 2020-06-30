@@ -16,7 +16,7 @@ router.post("/report", jwtCheck, async (req, res, next) => {
   const { name } = req.decoded;
   const { content } = req.body;
   try {
-    await Report.create({ name, content });
+    await Report.create({ author: name, content });
     res.status(200).json();
   } catch (err) {
     next(err);
