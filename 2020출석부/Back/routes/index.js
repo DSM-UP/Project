@@ -18,7 +18,9 @@ router.post("/report", jwtCheck, async (req, res, next) => {
   try {
     await Report.create({ name, content });
     res.status(200).json();
-  } catch (err) {}
+  } catch (err) {
+    next(err);
+  }
 });
 
 router.get("/activity", jwtCheck, async (req, res, next) => {
